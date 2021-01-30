@@ -1,7 +1,7 @@
  
-function amountChanger(ticketBooking, isIncrease) {
+function amountCount(ticketBooking, bookTicket) {
     var type = document.getElementById(ticketBooking).value
-    if (isIncrease == true) {
+    if (bookTicket == true) {
         document.getElementById(ticketBooking).value = ++type
     }
     else {
@@ -27,18 +27,18 @@ function totalUpdate() {
 }
 
 // confirmation and error
-function confirmationArea() {
+function TicketConfirmation() {
     document.getElementById('mainarea').style.display = "none"
     var totalPrice = totalUpdate();
     const totalCheck = document.getElementById("totalPrice").innerText;
     if (totalCheck == 0) {
-        document.getElementById('noticket-box').style.display = "block"
+        document.getElementById('NoBookTicket').style.display = "block"
     }
     else {
-        document.getElementById('confirm-box').style.display = "block"
+        document.getElementById('giveReply').style.display = "block"
         const economyClass = document.getElementById('economyclass-quantity').value
         const firstClass = document.getElementById('firstclassTicket-quantity').value
-        const confirmBox = document.getElementById('confrim-messege')
+        const confirmBox = document.getElementById('giveReply')
 
         //Booking quantity and price 
         if (firstClass > 0 && economyClass > 0) {

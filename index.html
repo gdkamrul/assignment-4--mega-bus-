@@ -13,6 +13,7 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="all.min.css">
+    
 </head>
 
 <body>
@@ -72,9 +73,9 @@
 
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <button class="btn-style" onclick="amountChanger('firstclassTicket-quantity',true)"><i
+                        <p> <button class="btn-style" onclick="amountCount('firstclassTicket-quantity',true)"><i
                                     class="fas fa-plus"></i></button>
-                            <button class="btn-style" onclick="amountChanger('firstclassTicket-quantity',false)"><i
+                            <button class="btn-style" onclick="amountCount('firstclassTicket-quantity',false)"><i
                                     class="fas fa-minus"></i></button>
                         </p>
                     </div>
@@ -87,9 +88,9 @@
 
                     </div>
                     <div class="plus-minus-btn">
-                        <p> <button class="btn-style" onclick="amountChanger('economyclassTicket-quantity',true)"><i
+                        <p> <button class="btn-style" onclick="amountCount('economyclassTicket-quantity',true)"><i
                                     class="fas fa-plus"></i></button>
-                            <button class="btn-style" onclick="amountChanger('economyclassTicket-quantity',false)"><i
+                            <button class="btn-style" onclick="amountCount('economyclassTicket-quantity',false)"><i
                                     class="fas fa-minus"></i></button>
                         </p>
                     </div>
@@ -123,22 +124,22 @@
                     </div>
                 </div>
             </div>
-            <button onclick="confirmationArea()" class="btn-style">Book Now</button>
+            <button onclick="TicketConfirmation()" class="btn-style">Book Now</button>
         </div>
     </main>
 <!-- Bus Booking confirmation -->
     <section class="confirmation-area">
-        <div id="confirm-box">
-            <h1>Ticket Information</h1><br>
+        <div id="giveReply">
+            <h1><i>Congratulations</i></h1><br>
             <hr><br>
             <h2>Your booking confirmed </h2>
-            <h5>You have booked : <i><span id="confrim-messege">0</span></i></h5><br>
-            <h4>Thanks for choosing <i>Mega City Bus</i></h4>
-            <a href="index.html"><button class="btn-style">Go to home page</button></a>
+            <br>
+            <a href="index.html"><button class="btn-style">Go Back</button></a>
         </div>
-        <div id="noticket-box">
-            <h1 style="color: red;">Sorry!</h1><br>
+        <div id="NoBookTicket">
+            <h1 style="color: rgb(255, 255, 255);">Sorry!</h1><br>
             <h4>You Did't book any Ticket</h4><br>
+            <br>
             <a href="index.html"><button class="btn-style">Go Back</button></a>
         </div>
     </section>
