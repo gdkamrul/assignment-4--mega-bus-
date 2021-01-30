@@ -4,22 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Flight Booking</title>
-    <!-- Fonts -->
+    <title>Bus Ticket</title>
+   <!-- Google Font -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap"
         rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css" rel="stylesheet" />
     <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="all.min.css">
 </head>
 
 <body>
-    <!--Header and Menu Section-->
-    <header class="container">
+    <!--Navbar-->
+    <header id="navarea" class="container">
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
+                <li><a href="index.html">Home</a></li>
                 <li><a href="#">About Us</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a class="active" href="#">Sign Up</a></li>
@@ -27,51 +28,71 @@
         </nav>
     </header>
 
-    <!--Booking Section-->
-    <main class="main-content container">
+    <!--Bus Ticket Booking -->
+    <main id="mainarea" class="main-content container">
+
+        <div class="booking-content">
+            <h1>Mega City Bus</h1>
+            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
+                industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and
+                scrambled it to make a type specimen book.</p>
+        </div>
+
+        <!-- Booking Form -->
         <div class="booking-form">
-            <h3>Booking Flights</h3>
-            <div class="input-group">
-                <label for="">Flying From</label>
-                <input class="inp-style" type="text" name="" placeholder="Dhaka, Bangladesh">
+            <h3>Explore By Bus</h3>
+
+            <div class="inputs">
+                <div class="input-group">
+                    <label" for="">From</label>
+                        <input class="inp-style" type="text" name="" placeholder="Dhaka">
+                </div>
+                <div class="input-group">
+                    <label" for="">From</label>
+                        <input class="inp-style" type="text" name="" placeholder="Chittagong">
+                </div>
             </div>
-            <div class="input-group">
-                <label for="">Flying To</label>
-                <input class="inp-style" type="text" name="" placeholder="New York, United States">
-            </div>
+
             <div class="inputs">
                 <div class="input-group">
                     <label" for="">Departure</label>
-                    <input class="inp-style" type="date" name="">
+                        <input class="inp-style" type="date" name="">
                 </div>
                 <div class="input-group">
                     <label for="">Return</label>
                     <input class="inp-style" type="date" name="">
                 </div>
             </div>
-            <div class="input-group f-class">
-                <div>
-                    <label for="">First Class ($150)</label>
-                    <input class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <button id="firstClassIncrease" <i class="fas fa-plus"></i></button>
-                    <button id="fisrtClassDecrease" <i class="fas fa-minus"></i></button>
+            <div class="inputs">
+                <div class="input-group f-class">
+                    <div>
+                        <!-- first class Ticket Booking -->
+                        <label for="">First Class ($<span id="firstclass">150</span>)</label>
+                        <input id="firstclassTicket-quantity" class="inp-style inp-width" type="number" name="" value="0">
 
-                   
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p> <button class="btn-style" onclick="amountChanger('firstclassTicket-quantity',true)"><i
+                                    class="fas fa-plus"></i></button>
+                            <button class="btn-style" onclick="amountChanger('firstclassTicket-quantity',false)"><i
+                                    class="fas fa-minus"></i></button>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            
-            <div class="input-group f-class">
-                <div>
-                    <label for="">Economy ($100)</label>
-                    <input id="economyTicketQuantity" class="inp-style inp-width" type="number" name="">
-                </div>
-                <div class="plus-minus-btn">
-                    <button id="economyClassIncrease" <i class="fas fa-plus"></i></button>
-                    <button id="economyClassDecrease" <i class="fas fa-minus"></i></button>
+                <div class="input-group f-class">
+                    <div>
+                        <!-- economy class Ticket Booking -->
+                        <label for="">Economy ($<span id="econoyclass">100</span>)</label>
+                        <input id="economyclassTicket-quantity" class="inp-style inp-width" type="number" name="" value="0">
 
-                   
+                    </div>
+                    <div class="plus-minus-btn">
+                        <p> <button class="btn-style" onclick="amountChanger('economyclassTicket-quantity',true)"><i
+                                    class="fas fa-plus"></i></button>
+                            <button class="btn-style" onclick="amountChanger('economyclassTicket-quantity',false)"><i
+                                    class="fas fa-minus"></i></button>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="calculations">
@@ -80,7 +101,7 @@
                         <p>Subtotal</p>
                     </div>
                     <div class="right">
-                        <p id="economyTicketPrice">$ 00</p>
+                        <p>$<span id="subPrice">0.00</span></p>
                     </div>
                 </div>
 
@@ -89,7 +110,7 @@
                         <p>Charge 10% VAT</p>
                     </div>
                     <div class="right">
-                        <p>$50</p>
+                        <p>$<span id="tax">0.00</p>
                     </div>
                 </div>
                 <hr>
@@ -98,32 +119,34 @@
                         <h4>Total</h4>
                     </div>
                     <div class="right">
-                        <p>$550</p>
+                        <p>$<span id="totalPrice">0.00</p>
                     </div>
                 </div>
             </div>
-            <button class="btn-style">Book Now</button>
+            <button onclick="confirmationArea()" class="btn-style">Book Now</button>
         </div>
-
-        <div class="booking-content">
-            <h1>discover <br> around the world</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicingelit. Provident voluptatibus quam fuga laborumalias veniam libero autem quasi maxime ullam vero nama imi dolor, architecto ab facilis eaque deserunt nobise voluptatibus quam</p>
+    </main>
+<!-- Bus Booking confirmation -->
+    <section class="confirmation-area">
+        <div id="confirm-box">
+            <h1>Ticket Information</h1><br>
+            <hr><br>
+            <h2>Your booking confirmed </h2>
+            <h5>You have booked : <i><span id="confrim-messege">0</span></i></h5><br>
+            <h4>Thanks for choosing <i>Mega City Bus</i></h4>
+            <a href="index.html"><button class="btn-style">Go to home page</button></a>
+        </div>
+        <div id="noticket-box">
+            <h1 style="color: red;">Sorry!</h1><br>
+            <h4>You Did't book any Ticket</h4><br>
+            <a href="index.html"><button class="btn-style">Go Back</button></a>
         </div>
     </section>
 
-    <script>
-        //Economy  Class Ticket  Booking 
-        document.getElementById('economyClassIncrease').addEventListener('click',function(){
-            const economyClassBtn = document.getElementById('economyTicketQuantity');
-            const economyTicketCount = parseInt(economyClassBtn.value);
-            const economyTicketAmount = economyTicketCount + 1;
-            economyClassBtn.value = economyTicketAmount;
-            const economyPrice = economyTicketAmount * 100;
-           Document.getElementById('economyTicketPrice').innerText ='$' + economyPrice;
-        })
-    </script>
-
     <!--Thank You-->
+
+    <!-- script  -->
+    <script src="index.js"></script>
 </body>
 
 </html>
